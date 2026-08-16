@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "ConsultRelay"
+description = "A polished, production-quality one-page marketing website for ConsultRelay — a B2B managed service that helps U.S. dental marketing agencies manage and measure the journey from paid implant lead to attended consultation. Includes hero, problem, how-it-works, differentiation, agency, pilot, metrics, FAQ, and final CTA sections, plus a /privacy page."
+version = "1.0.0"
+id = "artifacts/consultrelay"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20897
+
+[services.development]
+run = "pnpm --filter @workspace/consultrelay run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/consultrelay", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/consultrelay/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20897"
+BASE_PATH = "/"

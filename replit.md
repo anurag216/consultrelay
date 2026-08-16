@@ -1,45 +1,58 @@
-# [Project name]
+# ConsultRelay
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A polished, production-quality one-page marketing website for ConsultRelay — a B2B managed service that helps U.S. dental marketing agencies manage and measure the journey from paid implant lead to attended consultation (the "30-Day Implant Lead-to-Show Pilot").
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/consultrelay run dev` — run the marketing site (managed via workflow)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- React + Vite + Tailwind CSS (static marketing site, no backend)
+- Manrope font (Google Fonts)
+- Framer Motion for animations
+- wouter for routing (/privacy page)
+- Lucide icons
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/consultrelay/src/pages/home.tsx` — main one-page marketing site
+- `artifacts/consultrelay/src/pages/privacy.tsx` — /privacy page
+- `artifacts/consultrelay/src/components/layout/navbar.tsx` — sticky navbar + LogoIcon + Logo SVG components
+- `artifacts/consultrelay/src/components/layout/footer.tsx` — footer
+- `artifacts/consultrelay/src/index.css` — theme, Manrope import, brand color tokens (navy, ivory, teal, mint, charcoal)
+- `artifacts/consultrelay/index.html` — SEO metadata, OG tags, favicon
 
-## Architecture decisions
+## Brand
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Deep navy: #0D2235
+- Warm ivory: #F8F7F2
+- Teal: #2A8C82 (action/accent — use sparingly)
+- Pale mint: #E8F4F1
+- Charcoal: #26343D
+- Font: Manrope
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+ConsultRelay manages and measures the post-lead workflow for dental implant marketing agencies:
+**Paid Lead → Engaged → Qualified → Booked → Attended**
+
+Pilot price: $1,500 fixed + direct communication costs. Contact: ag@consultrelay.space
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- No fake testimonials, client logos, stats, or customer evidence
+- No AI sparkles, robot imagery, tooth icons, or dental clichés
+- No lorem ipsum anywhere
+- No contact form — mailto links only
+- Do NOT claim HIPAA compliance
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- LogoIcon is exported from navbar.tsx and must be imported by any page that uses it
+- Teal is the only action/accent color — use sparingly
+- Smooth scroll is enabled via `html { scroll-behavior: smooth }` in index.css
+- All CTA mailto links use: `mailto:ag@consultrelay.space?subject=ConsultRelay%20Lead-to-Show%20Pilot`

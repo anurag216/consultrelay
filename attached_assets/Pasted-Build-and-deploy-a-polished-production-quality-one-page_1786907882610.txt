@@ -1,0 +1,618 @@
+Build and deploy a polished, production-quality one-page marketing website for a new company called **ConsultRelay**.
+
+## Context
+
+ConsultRelay is validating a very narrow B2B managed service for U.S. dental marketing agencies and implant-focused dental practices.
+
+The service is called:
+
+**30-Day Implant Lead-to-Show Pilot**
+
+The problem:
+
+Dental marketing agencies generate expensive implant/full-arch leads for practices. Once a lead reaches the practice, response time, follow-up, scheduling, reminders and no-show recovery are often outside the agency's control.
+
+ConsultRelay manages and measures that post-lead workflow through **attended implant consultation**.
+
+We are NOT selling:
+
+* an AI receptionist;
+* a CRM;
+* dental marketing;
+* advertising;
+* a phone system;
+* clinical advice.
+
+We integrate with the existing workflow and manage one measurable funnel:
+
+**Paid Lead → Engaged → Qualified → Booked → Attended**
+
+Clinical questions and treatment decisions always remain with clinic staff.
+
+The initial pilot costs:
+
+**$1,500 fixed for 30 days + direct communication costs**
+
+Scope:
+
+* one implant-focused dental practice;
+* up to 100 newly opted-in paid implant leads;
+* follow-up;
+* non-clinical qualification;
+* consultation booking;
+* reminders;
+* rescheduling/no-show recovery;
+* human escalation;
+* weekly lead-to-show reporting.
+
+The website is primarily being visited by founders/CEOs/COOs/client-success leaders at U.S. dental marketing agencies after receiving a personalized cold email.
+
+The website therefore needs to create trust extremely quickly.
+
+---
+
+# TECHNOLOGY
+
+Use a simple, robust stack suitable for Replit.
+
+Prefer:
+
+* React + Vite;
+* TypeScript;
+* Tailwind CSS or clean modular CSS;
+* Lucide icons if icons are necessary.
+
+This is a static marketing site.
+
+Do NOT add:
+
+* authentication;
+* database;
+* CMS;
+* backend unless absolutely necessary;
+* user accounts;
+* billing;
+* dashboards.
+
+Optimize it for very fast loading.
+
+Make the site fully responsive and excellent on desktop and mobile.
+
+Use semantic HTML, good accessibility, keyboard focus states, correct heading hierarchy, and strong SEO metadata.
+
+---
+
+# BRAND DIRECTION
+
+The brand should feel like:
+
+**premium healthcare revenue operations + sophisticated B2B software**
+
+It should NOT look like:
+
+* an AI startup;
+* a crypto company;
+* a generic SaaS template;
+* a dental clinic;
+* a marketing agency.
+
+Avoid:
+
+* glowing purple gradients;
+* neon;
+* robots;
+* brains;
+* sparkles;
+* tooth icons;
+* medical crosses;
+* stock photographs of smiling dentists;
+* cheesy dental imagery.
+
+## Color palette
+
+Use approximately:
+
+* Deep navy: #0D2235
+* Warm ivory: #F8F7F2
+* Teal: #2A8C82
+* Pale mint: #E8F4F1
+* Charcoal: #26343D
+* White where useful
+
+Use teal sparingly as the action/accent color.
+
+## Typography
+
+Use **Manrope**, **Geist**, or a similarly modern professional sans serif.
+
+Headlines should be confident and editorial rather than oversized startup-style typography.
+
+Use generous whitespace.
+
+---
+
+# LOGO
+
+Create a professional logo directly as SVG so it remains crisp.
+
+Logo:
+
+**ConsultRelay**
+
+Create a small abstract icon next to the wordmark.
+
+The icon should communicate:
+
+* movement;
+* handoff;
+* connection;
+* progression from one stage to another.
+
+Design idea:
+
+Use two or three connected rounded nodes or curves that subtly suggest a relay/forward movement and optionally hint at the letters C and R.
+
+It must remain recognizable at favicon size.
+
+Do NOT use:
+
+* tooth imagery;
+* dental tools;
+* medical cross;
+* phone handset;
+* speech bubbles;
+* AI sparkles;
+* robot imagery.
+
+Create:
+
+1. horizontal logo;
+2. icon-only SVG;
+3. favicon.
+
+Use the icon primarily in teal/navy.
+
+---
+
+# NAVIGATION
+
+Sticky minimal navbar.
+
+Left:
+ConsultRelay logo.
+
+Links:
+
+* How It Works
+* For Agencies
+* The Pilot
+* FAQ
+
+Right CTA button:
+
+**Discuss a Pilot**
+
+CTA should use:
+
+mailto:ag@consultrelay.space?subject=ConsultRelay%20Lead-to-Show%20Pilot
+
+No contact form.
+
+We do not want people submitting patient information through this website.
+
+---
+
+# HERO
+
+Small eyebrow:
+
+**FOR DENTAL IMPLANT MARKETING AGENCIES**
+
+Main headline:
+
+# You paid for the implant lead.
+
+# Don't lose it after the form.
+
+Subheadline:
+
+**ConsultRelay works the gap between new enquiry and attended consultation — response, qualification, booking, reminders and recovery — while your client's clinical team handles dentistry.**
+
+Primary CTA:
+
+**Discuss a 30-Day Pilot**
+
+Secondary text link:
+
+**See how it works ↓**
+
+Below CTA add a quiet credibility statement:
+
+**Works alongside the CRM, calendar and marketing stack already in place.**
+
+## Hero visual
+
+Do NOT use a stock image.
+
+Create an elegant product-style visual showing:
+
+**Paid Lead → Engaged → Booked → Attended**
+
+Represent each step with a premium card/node.
+
+Use a subtle animation where a small teal pulse progresses from Lead to Attended.
+
+Include tiny supporting labels such as:
+
+* New enquiry
+* Conversation
+* Consultation scheduled
+* Confirmed attendance
+
+This is a conceptual workflow visual, NOT fake customer data.
+
+---
+
+# PROBLEM SECTION
+
+Headline:
+
+## Generating the lead is only half the funnel.
+
+Copy:
+
+**The agency controls the campaign, landing page and lead volume. Then the lead reaches the practice — and visibility often disappears.**
+
+Create three elegant cards:
+
+### Response
+
+Was every paid implant lead contacted promptly and consistently?
+
+### Follow-up
+
+What happened to the leads who didn't answer the first call or text?
+
+### Show
+
+Of the consultations that were booked, how many actually walked through the door?
+
+Below them add:
+
+**When that part of the funnel is unclear, strong marketing can still look like poor marketing.**
+
+---
+
+# HOW IT WORKS SECTION
+
+Headline:
+
+## We own one narrow part of the journey.
+
+Show five stages horizontally on desktop and vertically on mobile.
+
+### 01 — Respond
+
+New opted-in implant enquiries enter the workflow quickly.
+
+### 02 — Qualify
+
+We collect only the approved non-clinical information needed to move the conversation forward.
+
+### 03 — Book
+
+Qualified prospects are moved into genuine consultation availability.
+
+### 04 — Confirm
+
+Reminders, rescheduling and appropriate follow-up help protect the appointment.
+
+### 05 — Measure
+
+Every lead receives a clear disposition through attended consultation.
+
+Add a visually distinct note:
+
+**Clinical questions, diagnosis, treatment recommendations and suitability decisions always go to the practice.**
+
+---
+
+# DIFFERENTIATION SECTION
+
+Dark navy background.
+
+Headline:
+
+## Not another receptionist. Not another CRM.
+
+Use a clean two-column comparison.
+
+### Your existing stack already handles
+
+* lead generation;
+* CRM records;
+* phone/SMS infrastructure;
+* practice scheduling;
+* clinical workflows.
+
+### ConsultRelay focuses on
+
+* lead-response execution;
+* persistent follow-up;
+* non-clinical qualification;
+* consultation booking;
+* no-show/reschedule recovery;
+* lead-to-attended-consult attribution.
+
+Closing statement:
+
+**If your clients already handle and measure this perfectly, you probably don't need ConsultRelay.**
+
+This line is important. Make it visually prominent.
+
+---
+
+# AGENCY SECTION
+
+Headline:
+
+## Give clients visibility after the lead is generated.
+
+Copy:
+
+**Agencies are often accountable for lead quality while having limited control over what happens after the handoff.**
+
+**ConsultRelay gives the agency a clearer view of the complete operational funnel:**
+
+Create a horizontal funnel:
+
+**Lead**
+→ **Engaged**
+→ **Qualified**
+→ **Booked**
+→ **Attended**
+
+Below:
+
+**That means conversations about performance can start with what actually happened to the leads — not assumptions about whether someone called them.**
+
+Do not claim we improve results because we do not yet have customer evidence.
+
+---
+
+# PILOT SECTION
+
+Make this visually strong but tasteful.
+
+Small label:
+
+**VALIDATION PILOT**
+
+Headline:
+
+# 30-Day Implant Lead-to-Show Pilot
+
+Display:
+
+**$1,500**
+
+Under price:
+
+**fixed pilot fee + direct communication costs**
+
+Include:
+
+* 1 implant-focused practice
+* up to 100 newly opted-in implant leads
+* existing CRM/calendar wherever practical
+* response and follow-up workflow
+* non-clinical qualification
+* consultation scheduling
+* reminders and no-show recovery
+* human escalation
+* weekly funnel reporting
+
+Important note:
+
+**No guarantee of treatment acceptance or revenue. The pilot exists to measure whether a better-operated lead-to-show process improves conversion or reduces manual workload.**
+
+CTA:
+
+**Discuss the Pilot**
+
+mailto:ag@consultrelay.space?subject=ConsultRelay%20Lead-to-Show%20Pilot
+
+---
+
+# WHAT WE MEASURE
+
+Headline:
+
+## The metric isn't messages sent.
+
+Large statement:
+
+# It's attended implant consultations.
+
+Then show the measurement chain:
+
+Lead received
+↓
+Meaningful conversation
+↓
+Qualified
+↓
+Consultation booked
+↓
+Consultation attended
+
+Supporting text:
+
+**The goal is to understand exactly where paid demand is being lost between acquisition and the chair.**
+
+Do not fabricate numerical performance examples.
+
+---
+
+# FAQ
+
+## Is ConsultRelay an AI receptionist?
+
+No. Existing tools already automate conversations and appointment scheduling. ConsultRelay focuses on operating and measuring one specific funnel: **paid implant lead → attended consultation**.
+
+## Do you replace our CRM or HighLevel?
+
+No. We prefer to work with the systems already in place rather than introduce another system of record.
+
+## Does ConsultRelay replace the front desk?
+
+No. Clinic staff continue to handle clinical questions, treatment decisions and situations requiring human judgment.
+
+## Can you guarantee more implant cases?
+
+No. We guarantee the defined workflow and measurement during the pilot. Clinical eligibility, patient decisions and treatment acceptance remain outside our control.
+
+## What happens with clinical questions?
+
+They are escalated to the clinic. ConsultRelay does not diagnose, determine implant suitability or recommend treatment.
+
+## How is healthcare data handled?
+
+Before a live pilot, the exact data flow, vendors, consent process, access controls and required agreements are documented with the participating practice. Do not make a claim on this website that ConsultRelay is "HIPAA compliant."
+
+## Why $1,500?
+
+It is a managed 30-day experiment on a high-value acquisition funnel — not a software-seat subscription.
+
+---
+
+# FINAL CTA
+
+Large headline:
+
+# Want to see what happens after your next implant lead?
+
+Supporting copy:
+
+**Run the next 100 leads through a measurable Lead-to-Show workflow.**
+
+Button:
+
+**Discuss a 30-Day Pilot**
+
+Secondary:
+
+**[ag@consultrelay.space](mailto:ag@consultrelay.space)**
+
+Add beneath:
+
+**If your clients already have this solved, tell us. That's useful information too.**
+
+---
+
+# FOOTER
+
+Logo.
+
+Text:
+
+**ConsultRelay — Lead-to-Show conversion for high-value dental leads**
+
+Email:
+[ag@consultrelay.space](mailto:ag@consultrelay.space)
+
+Links:
+
+* How It Works
+* Pilot
+* FAQ
+* Privacy
+
+Include:
+
+**Please do not send patient health information by email or through this website.**
+
+Copyright current year.
+
+---
+
+# PRIVACY PAGE
+
+Create a minimal `/privacy` page.
+
+Do not create an elaborate privacy policy pretending legal review has occurred.
+
+State clearly that:
+
+* this public website is for business enquiries;
+* it does not intentionally collect patient health information;
+* visitors should not send patient health information by email;
+* normal technical server/log information may be processed by the hosting infrastructure;
+* live pilot data handling is governed separately with participating customers.
+
+Include a note that formal policies may be updated before live patient deployments.
+
+---
+
+# SEO
+
+Title:
+
+**ConsultRelay | Implant Lead-to-Show Conversion**
+
+Meta description:
+
+**ConsultRelay helps dental marketing agencies manage and measure the journey from paid implant lead to attended consultation.**
+
+Use canonical URLs referencing:
+https://consultrelay.space
+
+Add OpenGraph metadata.
+
+Generate a simple branded OG image using HTML/CSS or an SVG asset featuring:
+
+**ConsultRelay**
+**Paid Lead → Attended Consultation**
+
+Do not use fake testimonials, client logos, ratings, awards or customer statistics.
+
+---
+
+# MOTION
+
+Use subtle motion only:
+
+* small funnel relay animation in hero;
+* gentle hover states;
+* soft section reveal;
+* subtle CTA transitions.
+
+Respect `prefers-reduced-motion`.
+
+No excessive parallax or flashy effects.
+
+---
+
+# QUALITY REQUIREMENTS
+
+Before considering the task finished:
+
+1. Run the application.
+2. Test all navigation links.
+3. Test every mailto CTA.
+4. Verify mobile layout at common phone widths.
+5. Verify tablet layout.
+6. Run accessibility checks.
+7. Ensure text contrast is strong.
+8. Make sure there are no fake claims.
+9. Make sure there is no lorem ipsum.
+10. Make sure there are no missing images/assets.
+11. Ensure favicon works.
+12. Ensure `/privacy` works directly.
+13. Run build/typecheck/lint.
+14. Fix all errors and warnings that materially affect the site.
+15. Make the final result look bespoke, not like an AI-generated template.
+
+Do not stop at the first functioning version.
+
+Critique the visual result yourself and perform at least one refinement pass focusing on typography, spacing, hierarchy, mobile responsiveness and premium visual quality.
