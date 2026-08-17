@@ -3,6 +3,7 @@ import { Navbar, LogoIcon } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { motion, useReducedMotion } from 'framer-motion';
+import { trackEvent } from '@/lib/analytics';
 
 // ─── Pipeline stages ──────────────────────────────────────────────────────────
 const PIPELINE_STAGES = [
@@ -213,10 +214,17 @@ export default function HomePage() {
                   recovery — while your client's clinical team handles dentistry.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 items-start">
-                  <a href={MAILTO} className="btn-teal" data-testid="hero-cta-primary">
+                  <a
+                    href={MAILTO}
+                    className="btn-teal"
+                    data-testid="hero-cta-primary"
+                    onClick={() => trackEvent('cta_clicked', { cta: 'hero_pilot', label: 'Discuss a 30-Day Pilot' })}
+                  >
                     Discuss a 30-Day Pilot
                   </a>
-                  <a href="#how-it-works" className="link-arrow py-[11px]" data-testid="hero-link-works">
+                  <a href="#how-it-works" className="link-arrow py-[11px]" data-testid="hero-link-works"
+                    onClick={() => trackEvent('cta_clicked', { cta: 'hero_how_it_works', label: 'See how it works' })}
+                  >
                     See how it works
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="2">
                       <path d="M7 2l5 5-5 5M12 7H2" strokeLinecap="round" strokeLinejoin="round" />
@@ -547,6 +555,7 @@ export default function HomePage() {
                       href={MAILTO}
                       className="block text-center px-5 py-3 rounded-[3px] text-[14px] font-semibold text-navy bg-white hover:bg-ivory transition-colors"
                       data-testid="pilot-cta"
+                      onClick={() => trackEvent('cta_clicked', { cta: 'pilot_section', label: 'Discuss the Pilot' })}
                     >
                       Discuss the Pilot
                     </a>
@@ -703,12 +712,14 @@ export default function HomePage() {
                   href={MAILTO}
                   className="btn-teal text-[14.5px] px-7 py-3.5"
                   data-testid="final-cta"
+                  onClick={() => trackEvent('cta_clicked', { cta: 'final_section', label: 'Discuss a 30-Day Pilot' })}
                 >
                   Discuss a 30-Day Pilot
                 </a>
                 <a
                   href="mailto:ag@consultrelay.space"
                   className="inline-flex items-center py-3.5 text-[14px] font-medium text-white/50 hover:text-teal transition-colors"
+                  onClick={() => trackEvent('cta_clicked', { cta: 'final_email', label: 'ag@consultrelay.space' })}
                 >
                   ag@consultrelay.space
                 </a>

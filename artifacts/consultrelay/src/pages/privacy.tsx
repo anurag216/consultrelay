@@ -21,6 +21,22 @@ export default function PrivacyPage() {
               <li>Live pilot data handling is governed separately with participating customers.</li>
               <li>Formal policies may be updated before live patient deployments.</li>
             </ul>
+
+            <div className="mt-2 pt-2 border-t border-mint">
+              <h2 className="text-lg font-semibold text-navy mb-3">Analytics</h2>
+              <p className="mb-3">
+                This site uses <a href="https://posthog.com" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">PostHog</a> (PostHog Inc., USA) as a third-party analytics processor to collect usage data, including page views, session duration, and named interaction events such as CTA button clicks. Data is transmitted to and stored by PostHog Inc. under their <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">privacy policy</a>.
+              </p>
+              <p className="mb-3">
+                PostHog assigns a pseudonymous device identifier (stored in your browser via a cookie or local storage) to associate events from the same session. Your IP address may be processed in transit. If you arrived via a campaign link containing UTM parameters or an opaque reference token, those values are captured as event properties to attribute the visit to its source — no email address or other personal information is placed in these tokens.
+              </p>
+              <ul className="space-y-2 list-disc pl-5">
+                <li>Autocapture is disabled — only explicitly named events are recorded.</li>
+                <li>Do Not Track (DNT) browser signals are honoured; no data is sent if DNT is set.</li>
+                <li>Screen recording is not enabled.</li>
+                <li>Analytics data is used solely to understand how effectively the site communicates its value proposition.</li>
+              </ul>
+            </div>
           </div>
           
           <div className="mt-12 pt-8 border-t border-mint">
