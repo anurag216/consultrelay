@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { CookieConsentBanner } from '@/components/cookie-consent';
 import NotFound from '@/pages/not-found';
 import HomePage from '@/pages/home';
 import PrivacyPage from '@/pages/privacy';
@@ -40,6 +41,7 @@ function App() {
           <Router />
         </WouterRouter>
         <Toaster />
+        <CookieConsentBanner />
       </TooltipProvider>
     </QueryClientProvider>
   );
