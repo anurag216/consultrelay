@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { initAnalytics } from '@/lib/analytics';
+import { initAnalytics, revokeAnalyticsConsent } from '@/lib/analytics';
 
 const CONSENT_KEY = 'cookie_consent';
 
@@ -19,7 +19,8 @@ function storeConsent(value: ConsentValue) {
   try {
     localStorage.setItem(CONSENT_KEY, value);
   } catch {
-    // storage blocked — treat as session-only
+    // Storage blocked — analytics will fail closed because consent cannot be
+    // persisted/read back by the analytics boundary.
   }
 }
 
@@ -39,7 +40,7 @@ export function initAnalyticsIfConsented(): ConsentValue | null {
 /**
  * Cookie consent banner — renders only when no prior choice is recorded.
  * On accept: persists choice + initialises PostHog.
- * On decline: persists choice, no tracking.
+ * On decline: persists choice + explicitly opts out any initialised instance.
  */
 export function CookieConsentBanner() {
   // Start as null (unknown) to avoid a flash; we check localStorage on mount.
@@ -58,6 +59,7 @@ export function CookieConsentBanner() {
 
   function handleDecline() {
     storeConsent('declined');
+    revokeAnalyticsConsent();
     setVisible(false);
   }
 

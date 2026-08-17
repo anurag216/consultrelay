@@ -4,8 +4,9 @@
  * Initialise once at app startup (see main.tsx).
  * Use `trackEvent` anywhere to fire a named event with optional properties.
  *
- * PostHog is only activated when VITE_POSTHOG_KEY is set, so local dev
- * stays clean without any extra configuration.
+ * PostHog is only activated when VITE_POSTHOG_KEY is set AND the visitor has
+ * explicitly accepted analytics cookies. Consent is enforced again inside this
+ * module so future callers cannot accidentally bypass the consent banner.
  *
  * ── Cold email attribution ────────────────────────────────────────────────────
  * Each cold email link should include UTM parameters and/or an opaque `ref`
@@ -26,8 +27,21 @@
  */
 import posthog from 'posthog-js';
 
-const KEY  = import.meta.env.VITE_POSTHOG_KEY  as string | undefined;
+const KEY = import.meta.env.VITE_POSTHOG_KEY as string | undefined;
 const HOST = (import.meta.env.VITE_POSTHOG_HOST as string | undefined) ?? 'https://us.i.posthog.com';
+const CONSENT_KEY = 'cookie_consent';
+
+let initialized = false;
+
+/** Analytics is allowed only after an explicit persisted acceptance. */
+function hasAnalyticsConsent(): boolean {
+  try {
+    return localStorage.getItem(CONSENT_KEY) === 'accepted';
+  } catch {
+    // If browser storage is unavailable, fail closed rather than track.
+    return false;
+  }
+}
 
 /** Read a single query param from the current URL (caller ensures no PII). */
 function getParam(name: string): string | null {
@@ -53,19 +67,30 @@ function collectAttributionProps(): Record<string, string> {
 }
 
 export function initAnalytics() {
-  if (!KEY) return; // analytics disabled — no key configured
+  if (!KEY || !hasAnalyticsConsent()) return;
+
+  // Avoid duplicate initialisation/pageviews if this function is called twice
+  // during the same page lifecycle.
+  if (initialized) {
+    posthog.opt_in_capturing();
+    return;
+  }
 
   posthog.init(KEY, {
     api_host: HOST,
     // Privacy-considered defaults
-    autocapture: false,              // only fire events we explicitly call
-    capture_pageview: false,         // disabled — we fire $pageview manually below,
-                                     // AFTER registering attribution super-props
-    capture_pageleave: true,         // session-duration signal
+    autocapture: false,                 // only fire events we explicitly call
+    capture_pageview: false,            // disabled — we fire $pageview manually below,
+                                        // AFTER registering attribution super-props
+    capture_pageleave: true,            // session-duration signal
     persistence: 'localStorage+cookie',
-    respect_dnt: true,               // honour browser Do Not Track setting
-    disable_session_recording: true, // no screen recording on this site
+    respect_dnt: true,                  // honour browser Do Not Track setting
+    disable_session_recording: true,    // no screen recording on this site
+    opt_out_capturing_by_default: true, // defense-in-depth until explicit opt-in below
   });
+
+  initialized = true;
+  posthog.opt_in_capturing();
 
   // ── Campaign attribution ────────────────────────────────────────────────────
   // Register attribution BEFORE firing the first $pageview so that even a
@@ -80,10 +105,19 @@ export function initAnalytics() {
 }
 
 /**
+ * Stop any already-initialised PostHog instance from sending further data.
+ * Safe to call before PostHog has been initialised.
+ */
+export function revokeAnalyticsConsent() {
+  if (!KEY || !initialized) return;
+  posthog.opt_out_capturing();
+}
+
+/**
  * Fire a named analytics event.
- * Safe to call even when PostHog is not initialised — it becomes a no-op.
+ * Consent is checked here as the final boundary, not only in UI code.
  */
 export function trackEvent(event: string, properties?: Record<string, unknown>) {
-  if (!KEY) return;
+  if (!KEY || !initialized || !hasAnalyticsConsent()) return;
   posthog.capture(event, properties);
 }
